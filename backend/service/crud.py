@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from sqlalchemy import select
 
-from models.models import User, Transaction
+from models.all_models import User, Transaction
 from schemas.schemas import TransactionAdd
 
 

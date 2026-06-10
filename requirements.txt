@@ -1,10 +1,15 @@
 fastapi
 uvicorn
 pydantic
+email-validator
 python-dotenv
 sqlalchemy
 psycopg2-binary
+passlib
+python-jose
+
 
 streamlit
 requests
+
 alembic
