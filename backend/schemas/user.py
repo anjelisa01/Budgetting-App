@@ -1,10 +1,13 @@
 from pydantic import EmailStr,BaseModel,ConfigDict
 from typing import Optional
 
-#Input user
-class UserCreate(BaseModel):
+#base
+class UserBase(BaseModel)
     name:str
     email:EmailStr
+
+#Input user
+class UserCreate(UserBase):
     hashed_password:str
 class UserUpdate(BaseModel):
     name:Optional[str]
@@ -12,6 +15,6 @@ class UserUpdate(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
 #output system
-class UserResponse(UserCreate):
+class UserResponse(UserBase):
     model_config = ConfigDict(from_attributes=True)
 

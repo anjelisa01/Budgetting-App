@@ -28,9 +28,3 @@ def remove_user(user_id:int=Depends(get_current_user),db:Session=Depends(get_db)
 def edit_user(payload:UserUpdate,user_id:int=Depends(get_current_user), db:Session=Depends(get_db)):
     return update_user(db,user_id,payload)
 
-#test curl: get current user data
-'''
-curl -X GET "https://friendly-doodle-x5wp79r55w9wfpj4x-8000.app.github.dev/api/v1/users/me" \
--H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTUiLCJleHAiOjE3ODEwNjczNzN9.jQp1FsdSPjETdUe4eXRwPcAIgd9cXCFMv2Vpzh90Ylg"
-
-'''

@@ -89,9 +89,3 @@ app.include_router(api_router, prefix="/api/v1")
 #     # return {"message":"success"}
 #     return read_one_user(db,user_id)
 
-
-# # --------curl command--------------
-# # curl -X GET "https://friendly-doodle-x5wp79r55w9wfpj4x-8000.app.github.dev/protected_user" \
-# # > -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTIiLCJleHAiOjE3ODEwMDkxMDl9._mFE21oiCNStPnLsB_jgs5CwbhfjaYA7kyyEDfOwjto"
-# # --------output bellow------------
-# # {"email":"user@example.com","name":"great","id":12,"hashed_password":"$2b$12$yG0HUIWaY41mX2HzEwGnseIgmg8YtBUPPOuLO7.h/Lae8tmJJuo4O"}
