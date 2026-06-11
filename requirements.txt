@@ -7,6 +7,9 @@ sqlalchemy
 psycopg2-binary
 passlib
 python-jose
+pytest 
+httpx 
+pytest-asyncio
 
 
 streamlit

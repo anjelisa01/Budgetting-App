@@ -2,7 +2,7 @@ from pydantic import EmailStr,BaseModel,ConfigDict
 from typing import Optional
 
 #base
-class UserBase(BaseModel)
+class UserBase(BaseModel):
     name:str
     email:EmailStr
 
