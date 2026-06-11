@@ -10,8 +10,8 @@ class UserBase(BaseModel):
 class UserCreate(UserBase):
     hashed_password:str
 class UserUpdate(BaseModel):
-    name:Optional[str]
-    email:Optional[str]
+    name:str | None = None 
+    email:str | None = None
     model_config = ConfigDict(from_attributes=True)
 
 #output system
