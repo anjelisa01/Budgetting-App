@@ -1,5 +1,10 @@
 from fastapi import FastAPI
 
+#logger
+from logger import logger
+
+from contextlib import asynccontextmanager
+
 from database import Base
 from database import engine
 
@@ -7,9 +12,33 @@ from api.v1.router import api_router
 
 Base.metadata.create_all(bind=engine) #Models → DB (DB is generated from models)
 
+# @asynccontextmanager
+# async def lifespan(app:FastAPI):
+#     logger.info("Aplication started")
+#     yield
+#     logger.info("Application stopped")
+
+# app=FastAPI(lifespan=lifespan)
+
 app=FastAPI()
 
 app.include_router(api_router, prefix="/api/v1")
+
+
+
+
+
+
+
+
+# from exceptions import UserAlreadyExists
+# from handler import user_exists_handler
+
+# app.add_exception_handler(
+#     UserAlreadyExists,
+#     user_exists_handler
+# )
+
 
 
 

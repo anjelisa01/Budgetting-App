@@ -1,18 +1,27 @@
 import pytest
 from fastapi.testclient import TestClient
 from main import app
+# import logging
 
-from dotenv import load_dotenv
-import os
-load_dotenv()
-AUTHENTICATED_USER=os.getenv("AUTHENTICATED_USER_TOKEN")
+# logging.getLogger("httpx").setLevel(logging.WARNING)
 
 @pytest.fixture
 def authenticated_client():
     client=TestClient(app)
+    payload={
+        "email": "bibib@example.com",
+        "password":"1"  
+        }
+    response=client.post(
+        '/api/v1/auth/login',
+        json=payload)
+    
+    assert response.status_code==200
+
+    token=response.json()["access_token"]
 
     client.headers.update({
-        "Authorization":f"Bearer {AUTHENTICATED_USER}"
+        "Authorization":f"Bearer {token}"
     })
     return client
         

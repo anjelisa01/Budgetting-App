@@ -4,9 +4,6 @@ from sqlalchemy import select
 from models.all_models import User, Transaction
 from schemas.schemas import TransactionAdd
 
-
-
-
 def add_transaction(db:Session,transaction:TransactionAdd):
     db_transaction=Transaction(**transaction.model_dump())
     
