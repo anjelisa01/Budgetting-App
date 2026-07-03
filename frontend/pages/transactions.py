@@ -2,8 +2,10 @@ import streamlit as st
 import requests
 import pandas as pd
 
-API_URL="https://friendly-doodle-x5wp79r55w9wfpj4x-8000.app.github.dev"
+# API_URL=
 
+if "jwt" not in st.session_state:
+    st.switch_page("login.py")
 
 if st.button(f"See all transactions"):
     response=requests.get(f"{API_URL}/transactions")

@@ -1,23 +1,28 @@
 import streamlit as st
 import requests
+st.title("BUDGETTING APP")
 
-API_URL="https://friendly-doodle-x5wp79r55w9wfpj4x-8000.app.github.dev"
 
-st.title("FastAPI_Streamlit")
 
-# users=st.Page("users.py",title="Users")
-# pg=st.navigation([users])
-# pg.run()
 
-name=st.text_input("Name: ")
-email=st.text_input("Email: ")
+col1, col2 = st.columns(2)
+with col1:
+    st.text("Track your budgetting the easy way")
+    if st.button("Signup to get started"):
+        st.switch_page("pages/signup.py")
 
-signup_data={
-    "name":name,
-    "email":email
-}
+with col2:
+    st.text("Already have an account?")
+    if st.button("Sign in to your account"):
+        st.switch_page("pages/login.py")
 
-if st.button("Sign Up"):
-    res=requests.post(f"{API_URL}/signup",json=signup_data)
-    print("Status:", res.status_code)
-    st.write(res.text)
+
+
+
+# animal_shelter = ['cat', 'dog', 'rabbit', 'bird']
+
+# animal = st.text_input('Type an animal')
+
+# if st.button('Check availability'):
+#     have_it = animal.lower() in animal_shelter
+#     'We have that animal!' if have_it else 'We don\'t have that animal.'

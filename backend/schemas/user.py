@@ -12,6 +12,7 @@ class UserCreate(UserBase):
 class UserUpdate(BaseModel):
     name:str | None = None 
     email:str | None = None
+    password:str | None=None
     model_config = ConfigDict(from_attributes=True)
 
 #output system

@@ -7,7 +7,7 @@ def require_auth():
     token=st.session_state.get("jwt") #get token from session_state
 
     if not token: #if there is none
-        st.switch_page("pages/auth_login.py")
+        st.switch_page("pages/login.py")
 
     #verify with fastapi
     response=get("/api/v1/users/me")
@@ -15,6 +15,6 @@ def require_auth():
     #if token invalid/expired
     if response.status_code!=200:
         st.session_state.pop("jwt",None)
-        st.switch_page("pages/auth_login.py")
+        st.switch_page("pages/login.py")
     
     return response.json()

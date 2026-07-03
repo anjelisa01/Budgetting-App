@@ -11,9 +11,9 @@ client=TestClient(app)
 @pytest.mark.signup #pytest -m signup
 def test_create_user(): 
     payload={
-        "name": "bibib",
-        "email": "bibib@example.com",
-        "hashed_password": "bibib"
+        "name": "gary",
+        "email": "gary@example.com",
+        "hashed_password": "gary"
         }
     response=client.post(
         "/api/v1/users/signup",

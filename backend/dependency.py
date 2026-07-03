@@ -29,6 +29,8 @@ def get_current_user(db:Session=Depends(get_db),token:str=Depends(oauth2_scheme)
         payload=jwt.decode(token,SECRET_KEY,algorithms='HS256')
         user_id=payload.get("user_id")
         user=db.scalar(select(User).where(User.id==user_id))
+        if user is None:
+            raise HTTPException(status_code=401, detail="User not found")
         return user.id
     except JWTError:
         raise HTTPException(status_code=401,detail="invalid token")
