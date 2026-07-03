@@ -10,7 +10,7 @@ def authenticated_client():
     client=TestClient(app)
     payload={
         "email": "bibib@example.com",
-        "password":"1"  
+        "password":"bibib"  
         }
     response=client.post(
         '/api/v1/auth/login',

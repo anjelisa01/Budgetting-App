@@ -5,11 +5,15 @@ email-validator
 python-dotenv
 sqlalchemy
 psycopg2-binary
-passlib
+# passlib
 python-jose
 pytest 
 httpx 
 pytest-asyncio
+passlib==1.7.4
+bcrypt==4.0.1
+# my current password logic exceeded 72 bytes 
+#which raising issue with newer bcrypt version 5.0.
 
 
 streamlit

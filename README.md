@@ -3,12 +3,15 @@
 
 # how to test
 1. sign up 
+    there is 1 test
     make sure using new email
     pytest -m signup
 2. login 
+    there is 1 test
     make sure existing user credential
     pytest -m login
 3. full crud 
+    theres 3 test
     make sure existing user credential
     pytest -m user_crud_flow
 

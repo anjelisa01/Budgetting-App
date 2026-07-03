@@ -21,7 +21,7 @@ def test_create_user():
     assert response.status_code==200
 
 
-@pytest.mark.user_crud_flow #pytest -m user_crud_flow
+@pytest.mark.user_crud_flow     #pytest -m user_crud_flow
 def test_read_one_user(authenticated_client):
     response=authenticated_client.get("/api/v1/users/me")
     assert response.status_code==200
