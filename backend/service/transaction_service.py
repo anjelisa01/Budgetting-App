@@ -49,6 +49,7 @@ class TransactionService:
             account.current_balance=account.current_balance - transaction.amount
         if transaction.transaction_type=="income":
             account.current_balance=account.current_balance + transaction.amount
+       
 
         #if category not set, input null to db
         if transaction.category_id==0:

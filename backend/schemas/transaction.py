@@ -6,13 +6,15 @@ from decimal import Decimal
 class TransactionType(str,Enum):
     EXPENSE = "expense"
     INCOME = "income"
+    SAVING="transfer"
+
 
 #Input user
 class TransactionAdd(BaseModel):
     title:str
     amount:Decimal
     note:str
-    category_id:int | None = None
+    category_id:int | None = None #make default=None
     transaction_type:TransactionType
     
 class TransactionUpdate(BaseModel):

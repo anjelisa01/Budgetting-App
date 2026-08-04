@@ -18,6 +18,7 @@ from sqlalchemy import Enum as SQLEnum
 class TransactionType(str,Enum):
     EXPENSE = "expense"
     INCOME = "income"
+    SAVING="transfer"
 
 class Transaction(Base):
     __tablename__="transactions"
@@ -53,6 +54,7 @@ class Transaction(Base):
         ForeignKey("accounts.id"),
         nullable=False #mandatory
     )
+    
 
     #relationship
     account:Mapped["Account"]=relationship(
@@ -61,3 +63,4 @@ class Transaction(Base):
     category: Mapped["Category | None"] = relationship(
     back_populates="transactions"
     ) 
+    

@@ -25,8 +25,10 @@ class Goal(Base):
     user_id:Mapped[int]=mapped_column(
         ForeignKey("users.id") #
     )
+    
 
     #relationship
     user:Mapped["User"]=relationship(
         back_populates="goals" 
     )
+   

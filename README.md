@@ -1,41 +1,38 @@
-# Budgetting-App
+#PersonalFinanceApp
+##Description: 
+A rest-API backend for managing Personal Finance. Built using python FastAPI and PostgreSQL via neon. Entirely developed using github's Codespace.
 
+##API documentation
+swaggeruilinkhere.com
 
-# how to test
-1. sign up 
-    there is 1 test
-    make sure using new email
-    pytest -m signup
-2. login 
-    there is 1 test
-    make sure existing user credential
-    pytest -m login
-3. full crud 
-    theres 3 test
-    make sure existing user credential
-    pytest -m user_crud_flow
+##Features:
+- Secure user authentication with signup and login
+- User profile management (view, update, and delete personal data)
+- JWT-based authorization for protected API endpoints
+- Financial resource management:
+  - Accounts
+  - Goals
+  - Categories
+  - Transactions
+  - Budgets
+- Full CRUD operations for all user-owned resources
+- Protected routes accessible only to authenticated users
 
-#where to log
-log only important event
+##Tech Stacks
+- FastAPI
+- PostgreSQL (Neon)
+- SQLAlchemy
+- JWT Authentication
 
-app startup,
-endpoints calls
-errors
+##Project Structure
+PersonalFinanceApp
+    backend/
+        api/
+        dependecies/
+        core/
+        models/
+        schemas/
+        services/
+        tests/
+        main.py
 
-
-
-
-#IN crud the functions name follow pattern "create,read,update,delete-prefix"
-
-
-#note on production flow
-##Real production workflow (standard practice):
-
-The correct long-term workflow is:
-Models define intent → Migrations apply changes → DB evolves
-
-So the real source of truth becomes:
-Migrations (not models alone)
-
-Flow:
-Models → Alembic migration → PostgreSQL schema

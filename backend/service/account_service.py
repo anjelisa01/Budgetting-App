@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import select
 #model and schema
 from models.account import Account
-from schemas.account import AccountBase
+from schemas.account import AccountBase,AccountUpdate
 #util
 from logger import logger
 from exceptions import ResourceExistedError,ResourceNotFoundError
@@ -53,7 +53,7 @@ class AccountService:
             select(Account).where(Account.user_id == self.user_id)
         ).all()
         
-    def update(self,account_id:int,payload:AccountBase):
+    def update(self,account_id:int,payload:AccountUpdate):
         account=self.db.scalar(
             select(Account).where(
                 Account.user_id==self.user_id,

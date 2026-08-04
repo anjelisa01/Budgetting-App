@@ -2,7 +2,7 @@ from fastapi import APIRouter,Depends,HTTPException
 from sqlalchemy.orm import Session
 
 #schema and service and its dependency
-from schemas.account import AccountBase,AccountResponse
+from schemas.account import AccountBase,AccountResponse,AccountUpdate
 from service.account_service import AccountService
 from dependencies.services import get_account_service
 
@@ -28,7 +28,7 @@ def get_one_accounts(
 @router.patch("/{account_id}",response_model=AccountResponse)
 def edit_account(
     account_id:int,
-    payload:AccountBase,
+    payload:AccountUpdate,
     service:AccountService=Depends(get_account_service)):
     return service.update(account_id,payload)
 
