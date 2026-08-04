@@ -13,7 +13,7 @@ def hash_password(password:str):
 #(maybe) get_user_by_email
 from sqlalchemy.orm import Session
 from sqlalchemy import select
-from models.all_models import User
+from models.user import User
 def get_user_by_email(db:Session,email:str):
     stmt=select(User).where(User.email==email)
     return db.scalars(stmt).first()

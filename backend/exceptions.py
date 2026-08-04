@@ -3,6 +3,23 @@
 so make sure the exception raised in service layer are not http tied
 they should be only exception from python, and we handle with translating to http response in handler.py OR wherever
 '''
+class ResourceNotFoundError(Exception):
+    def __init__(self, resource: str, identifier):
+        self.resource = resource
+        self.identifier = identifier
+        super().__init__(f"{resource} not found: {identifier}")
+# how to raised
+# raise NotFoundError("Account", account_id)
+
+class ResourceExistedError(Exception):
+    def __init__(self, resource: str, identifier):
+        self.resource = resource
+        self.identifier = identifier
+        super().__init__(f"{resource} already existed: {identifier}")
+
+
+
+
 
 #custom exceptions
 #for auth service
@@ -11,8 +28,16 @@ class AuthFailedCredential(Exception): #
 
 #for user service
 class UserAlreadyExisted(Exception):
+    def __init__(self, email: str):
+        self.email = email
+    
+
+#for transaction service
+class TransactionNotFound(Exception):
     pass
 
+class TransactionsEmpty(Exception):
+    pass
 
 
 

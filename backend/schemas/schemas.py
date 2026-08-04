@@ -7,6 +7,7 @@ class TransactionAdd(BaseModel):
     amount:float
     note:str
     user_id:int
+    transaction_type:
 
 # class UserLogin(BaseModel):
 

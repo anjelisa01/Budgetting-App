@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from handler import register_handlers
 
 #logger
 from logger import logger
@@ -21,10 +22,9 @@ Base.metadata.create_all(bind=engine) #Models → DB (DB is generated from model
 # app=FastAPI(lifespan=lifespan)
 
 app=FastAPI()
+register_handlers(app)
 
 app.include_router(api_router, prefix="/api/v1")
-
-
 
 
 

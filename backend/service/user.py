@@ -2,23 +2,15 @@
 from sqlalchemy.orm import Session
 from sqlalchemy import select
 
-#sqlalchemy model: User
-from models.all_models import User
+#model and schema
+from models.user import User
+from schemas.user import UserCreate,UserUpdate 
 
-#pydantic schemas: user
-from schemas.user import UserCreate,UserUpdate
-
-#security utils
+#utilities
 from security import hash_password,get_user_by_email
-
-#logger
 from logger import logger
-
-#exceptions
 from exceptions import UserAlreadyExisted
 
-# CRUD ENDPOINT "/users" for REGULAR USER
-#-----------------------------------------
 #create new user (sign up)
 def create_user(db:Session, user:UserCreate):
     existing=get_user_by_email(db,user.email)
@@ -36,7 +28,6 @@ def create_user(db:Session, user:UserCreate):
 
     db.refresh(db_user) 
     return db_user
-    
 
 #read their data
 def read_one_user(db:Session,user_id:int):

@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from api.v1.endpoints import auth,users,transactions
+from api.v1.endpoints import auth,users,transactions,accounts,categories,goals,budgets
 
 api_router = APIRouter()
 
@@ -17,6 +17,29 @@ api_router.include_router(
 
 api_router.include_router(
     transactions.router,
-    prefix="/transactions",
+    prefix="/accounts/{account_id}/transactions",
     tags=["transactions"]
+)
+
+api_router.include_router(
+    accounts.router,
+    prefix="/accounts",
+    tags=["accounts"]
+)
+
+api_router.include_router(
+    categories.router,
+    prefix="/categories",
+    tags=["categories"]
+)
+api_router.include_router(
+    goals.router,
+    prefix="/goals",
+    tags=["goals"]
+)
+
+api_router.include_router(
+    budgets.router,
+    prefix="/categories/{category_id}/budget",
+    tags=["budgets"]
 )

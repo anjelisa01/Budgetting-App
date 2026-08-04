@@ -18,11 +18,11 @@ load_dotenv()
 
 SECRET_KEY=os.getenv("SECRET_KEY")
 
-oauth2_scheme=OAuth2PasswordBearer(tokenUrl="/login")
+oauth2_scheme=OAuth2PasswordBearer(tokenUrl="/api/v1/auth/login")
 
 from sqlalchemy.orm import Session
 from sqlalchemy import select
-from models.all_models import User
+from models.user import User
 
 def get_current_user(db:Session=Depends(get_db),token:str=Depends(oauth2_scheme)):
     try:

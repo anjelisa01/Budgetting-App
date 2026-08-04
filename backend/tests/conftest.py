@@ -9,8 +9,8 @@ from main import app
 def authenticated_client():
     client=TestClient(app)
     payload={
-        "email": "fifi@gmail.com",
-        "password":"fifi"  
+        "email": "erling@example.com",
+        "password":"erling" 
         }
     response=client.post(
         '/api/v1/auth/login',
