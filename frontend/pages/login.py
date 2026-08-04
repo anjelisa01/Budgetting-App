@@ -19,4 +19,4 @@ if st.button("Login"):
         token = res.json()["access_token"]
 
         st.session_state["jwt"] = token
-        st.switch_page("pages/users_page.py")
+        st.switch_page("pages/users_me.py")
