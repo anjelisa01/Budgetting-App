@@ -3,7 +3,9 @@
 A rest-API backend for managing Personal Finance. Built using python FastAPI and PostgreSQL via neon. Entirely developed using github's Codespace.
 
 ## API documentation
-swaggeruilinkhere.com
+https://anjelisa01.github.io/swagger-docs/
+
+The server is NOT deployed because of technical issue, above link is a static page of the swagger UI for the API
 
 ## Features:
 - Secure user authentication with signup and login
@@ -37,3 +39,7 @@ PersonalFinanceApp/
 |     tests/  
 |     main.py  
 ```
+## Future Improvement
+- Deployment so it can be access live
+- Add /dashboard endpoint
+- Add Financial Goals Tracking feature
