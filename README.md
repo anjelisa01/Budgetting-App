@@ -2,6 +2,10 @@
 ## Description: 
 A rest-API backend for managing Personal Finance. Built using python FastAPI and PostgreSQL via neon. Entirely developed using github's Codespace.
 
+## Database Schema
+For the ERD image, check file [Database ERD](Database%20ERD.png).
+More explanation on database schema, check file [Database Schema](database.md).
+
 ## API documentation
 https://anjelisa01.github.io/swagger-docs/
 
