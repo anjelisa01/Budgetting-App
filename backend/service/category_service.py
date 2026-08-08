@@ -1,14 +1,15 @@
 #import
 from sqlalchemy.orm import Session
 from sqlalchemy import select
+
+#models and schemas
+from models.user import User
 from models.category import Category
 from schemas.category import CategoryBase
-from logger import logger
-from exceptions import ResourceExistedError,ResourceNotFoundError
 
-from sqlalchemy.orm import Session
-from sqlalchemy import select
-from models.user import User
+#utils
+from core.logger import logger
+from core.exceptions import ResourceExistedError,ResourceNotFoundError
 
 def get_category_name(db:Session,user_id:int,category_name:str):
     stmt=select(Category).where(
@@ -28,6 +29,7 @@ class CategoryService:
         existing=get_category_name(self.db,self.user_id,payload.category_name)
         if existing:
             raise ResourceExistedError("Category",payload.category_name)
+        
         #insert
         try:
             self.db.add(category)
@@ -39,8 +41,7 @@ class CategoryService:
         self.db.refresh(category)
         return category
 
-    def read_one(self,category_id:int):
-        
+    def read_one(self,category_id:int):       
         category=self.db.scalar(
         select(Category).where(
             Category.user_id==self.user_id,
@@ -75,6 +76,7 @@ class CategoryService:
         logger.info("Category updated, category id=%s", category_id)
         self.db.refresh(category)
         return category
+        
     def delete(self,category_id:int):
         category=self.db.scalar(
             select(Category).where(

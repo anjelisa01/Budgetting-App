@@ -8,7 +8,8 @@ from service.budget_service import BudgetService
 from service.category_service import CategoryService
 from service.transaction_service import TransactionService
 
-from dependency import get_current_user,get_db
+from dependencies.auth import get_current_user
+from dependencies.database import get_db
 
 def get_user_service(db: Session = Depends(get_db)):
     return UserService(db)

@@ -1,27 +1,15 @@
 #import
 from sqlalchemy.orm import Session
 from sqlalchemy import select
-#sqlalchemy model: Transaction
-from models.transaction import Transaction #,Category
-from models.account import Account
-#pydantic schemas: transaction
-from schemas.transaction import TransactionAdd,TransactionResponse,TransactionUpdate
-#util
-from exceptions import ResourceExistedError,ResourceNotFoundError
-from logger import logger
 
-def update_account_balance(account_id:int,transaction_type:str):
-    '''
-    account current_balance=10000
-    user insert transaction data: 400, expense
-    system update account current_balance:
-        parameter(account_id,transaction)
-        find account 
-        if transaction.transaction_type==expense:
-            account.current_balance= account.current_balance-transaction.amount
-        if transaction.transaction_type==income:
-            account.current_balance= account.current_balance+transaction.amount
-    '''
+#models and schemas
+from models.transaction import Transaction 
+from models.account import Account
+from schemas.transaction import TransactionAdd,TransactionResponse,TransactionUpdate
+
+#util
+from core.exceptions import ResourceExistedError,ResourceNotFoundError
+from core.logger import logger
 
 class TransactionService:
     def __init__(self,db: Session,user_id:int):

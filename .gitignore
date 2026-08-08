@@ -9,3 +9,5 @@ app.log
 .pytest_cache/
 __pycache__
 notes.txt
+
+statuscode101.txt

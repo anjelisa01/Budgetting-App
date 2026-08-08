@@ -1,19 +1,21 @@
 #import
 from sqlalchemy.orm import Session
 from sqlalchemy import select
+from datetime import datetime, UTC
+
 #model and schema
 from models.user import User
 from schemas.user import UserCreate,UserUpdate 
-#utilities
-from security import hash_password,get_user_by_email
-from logger import logger
-from exceptions import ResourceExistedError
-from datetime import datetime, UTC
+
+#utils
+from core.security import hash_password,get_user_by_email
+from core.logger import logger
+from core.exceptions import ResourceExistedError
 
 class UserService:
     def __init__(self,db: Session):
         self.db = db
-        
+
     def create(self, payload:UserCreate):
         #check existing user
         existing=get_user_by_email(self.db,payload.email)
@@ -91,9 +93,3 @@ class UserService:
             raise
         logger.info("User deleted, user_id=%s", user_id)
         return{"message":"deleted"}
-
-
-        
-        
-        
-

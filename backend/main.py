@@ -1,13 +1,13 @@
 from fastapi import FastAPI
-from handler import register_handlers
+from core.handler import register_handlers
 
 #logger
-from logger import logger
+from core.logger import logger
 
 from contextlib import asynccontextmanager
 
-from database import Base
-from database import engine
+from core.database import Base
+from core.database import engine
 
 from api.v1.router import api_router
 

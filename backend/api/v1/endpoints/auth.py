@@ -9,7 +9,7 @@ from schemas.auth import UserLogin
 from fastapi import HTTPException
 
 #exception
-from exceptions import AuthFailedCredential
+from core.exceptions import AuthFailedCredential
 
 # services
 from service.auth_service import AuthService

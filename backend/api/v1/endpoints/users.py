@@ -2,16 +2,17 @@ from fastapi import APIRouter,Depends,HTTPException
 from sqlalchemy.orm import Session
 
 #pydantic schemas
-from schemas.user import UserCreate,UserResponse,UserUpdate                                                      
+from schemas.user import UserCreate,UserResponse,UserUpdate  
+
+#service
+from service.user_service import UserService
 
 #dependencies
-from dependency import get_current_user
-
-from service.user_service import UserService
+from dependencies.auth import get_current_user
 from dependencies.services import get_user_service
 
 #exception
-from exceptions import UserAlreadyExisted
+from core.exceptions import UserAlreadyExisted
 
 router=APIRouter(tags=["users"])
 

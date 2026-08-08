@@ -1,13 +1,14 @@
 #import
 from sqlalchemy.orm import Session
 from sqlalchemy import select
+
 #model and schema
 from models.goal import Goal
 from schemas.goal import GoalBase,GoalUpdate
-#util
-from logger import logger
-from exceptions import ResourceNotFoundError,ResourceExistedError
 
+#util
+from core.logger import logger
+from core.exceptions import ResourceNotFoundError,ResourceExistedError
 
 def get_goal_name(db:Session,user_id:int,goal_name:str):
     stmt=select(Goal).where(
@@ -19,8 +20,8 @@ class GoalService:
     def __init__(self,db: Session,user_id:int):
         self.db = db
         self.user_id=user_id
+        
     def create(self,payload:GoalBase):
-
         existing=get_goal_name(self.db,self.user_id,payload.goal_name)
         if existing:
             raise ResourceExistedError("Goal",payload.goal_name)
