@@ -1,4 +1,4 @@
-# PersonalFinanceApp
+# Personal Finance App
 ## Description: 
 A rest-API backend for managing Personal Finance. Built using python FastAPI and PostgreSQL via neon. Entirely developed using github's Codespace.
 
